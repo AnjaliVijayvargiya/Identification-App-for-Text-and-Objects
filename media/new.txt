@@ -1,0 +1,16 @@
+bicycle
+car
+car
+truck
+truck
+bus
+truck
+car
+truck
+bus
+motorcycle
+car
+truck
+truck
+truck
+truck
