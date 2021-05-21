@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Identification App for Text and Objects</title>
+</head>
+
+<body style="background-color: rgb(160, 243, 215);">
+    <div class="container-fluid my-2">
+        <div class="text-center">
+            <h1>Identification App for Text and Objects</h1>
+        </div>
+        <div style="margin-top: 50px; margin-bottom: 30px;" class="text-center">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form}}
+                <input type="submit" value="Upload Image" class="btn btn-primary" style="margin-left: 50px;">
+            </form>
+        </div>
+        <div class="my-4">
+            {% if img %}
+            <div class="row">
+                <div class="col-2"></div>
+                <img class="col-4" style="margin-right: 40px;" src="{{ img.image.url }}" height="300" width="500" alt="">
+                <img class="col-4" src="/media/1/{{ p }}" height="300" width="500" alt=""><br>                
+                <div class="col-1"></div>
+            </div>
+            <div class="row my-2 text-center text-white">
+                <div class="col-2"></div>
+                <div class="col-4 bg-primary" style="margin-right: 40px;">Orginal Image</div>
+                <div class="col-4 bg-success">Detected Image</div>
+                <div class="col-1"></div>
+            </div>
+            <div class="text-center my-1">
+                Detected Elements: <span style="color: red; font-weight: bold;">{{ lines }}</span>
+            </div>
+            <div class="text-center">
+                Note: <span style="color: rgb(4, 92, 48);">Refer these in case the detected text is out of picture range</span>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
